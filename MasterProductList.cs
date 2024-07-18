@@ -28,24 +28,38 @@ namespace ACME_Web_App
 
         //methods needs a product from the MPL list to be passed in, in order to return relevant data
         
-        public static string returnStatus(MasterProductList product) 
+        // public static string returnStatus(MasterProductList product) 
+        // {
+        //     //since status is a boolean value, we want to return something tangible
+        //     //if true, we return active
+        //     //if false, we reutrn restricted
+
+        //     string status;
+
+        //     if (product.status == true)
+        //     {
+        //         status = "Active";
+        //     }
+        //     else
+        //     {
+        //         status = "Restricted";
+        //     }
+
+        //     return status;
+        // }
+public static string GetAttributes(MasterProductList product)
         {
-            //since status is a boolean value, we want to return something tangible
-            //if true, we return active
-            //if false, we reutrn restricted
+            // Format the attributes into a string
+            string attributes = $"ID: {product.ID}, Description: {product.item_desc}, Supplier: {product.supplier}, Brand: {product.brand}, Status: {returnStatus(product)}";
 
-            string status;
+            return attributes;
+        }
 
-            if (product.status == true)
-            {
-                status = "Active";
-            }
-            else
-            {
-                status = "Restricted";
-            }
-
-            return status;
+        // Method to return status as string
+        public static string returnStatus(MasterProductList product)
+        {
+            // Return "Active" or "Restricted" based on status
+            return product.status ? "Active" : "Restricted";
         }
 
         //start here
