@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
 namespace ACME_Web_App
 {
     public class CustomerManager
     {
-        ArrayList customers = new ArrayList();
+        private ArrayList customers = new ArrayList();
 
         public void AddCustomer(Customer customer)
         {
             customers.Add(customer);
             Console.WriteLine(DisplayAllCustomers());
+        }
+
+        public ArrayList GetCustomers()
+        {
+            return customers;
         }
 
         public string DisplayCustomerInfo(Customer customer)
