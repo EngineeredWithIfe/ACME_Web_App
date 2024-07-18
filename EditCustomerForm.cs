@@ -1,22 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
+using System.Collections;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ACME_Web_App
 {
     public partial class EditCustomerForm : Form
     {
-        AddCustomerForm addCustomerForm = new AddCustomerForm();
-        public EditCustomerForm()
+        private ArrayList customers;
+
+        public EditCustomerForm(ArrayList customers)
         {
             InitializeComponent();
+            this.customers = customers;
+            DisplayCustomers();
+        }
+
+        private void DisplayCustomers()
+        {
+            listBoxCustomers.Items.Clear();
+            foreach (Customer customer in customers)
+            {
+                listBoxCustomers.Items.Add(customer.ToString());
+            }
         }
     }
 }
